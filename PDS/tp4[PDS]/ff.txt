@@ -1,0 +1,25 @@
+======================================================> forkfork <=========================================================
+
+salla@salla-Satellite-C655D ~/workspace/PDS/tp4 $ ./ff
+Processus père = [19712]
+[19712] Je vais engendrer
+[19712] J'ai engendré
+[19712] Mon fils est 19713
+Processus fils = [19713]
+[19713] Je viens de naître
+[19713] Mon père est 19712
+[19713] Je vais engendrer
+[19713] J'ai engendré
+[19713] Mon fils est 19714
+Processus petit-fils = [19714]
+[19714] Je viens de naître
+[19714] Mon père est 19713
+[19713] Je termine
+[19714] Je suis devenu orphelin, je suis maintenant adopté par init
+[19714] Mon nouveau père est 1
+Exécution de la fonction f
+[19714] J'ai exécuté la fonction f
+[19714] Je termine
+[19712] Je termine
+
+Conclusion : Un processus orphelin devient adopté par init (1).

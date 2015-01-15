@@ -1,0 +1,7 @@
+% Question 7 %
+
+np(X,Y) :- det(X,Z),n(Z,Y).
+
+vp(X,Y) :- v(X,Z),np(Z,Y).
+
+s(X,Y) :- np(X,Z),vp(Z,Y).

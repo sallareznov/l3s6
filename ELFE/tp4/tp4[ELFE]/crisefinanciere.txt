@@ -1,0 +1,51 @@
+------------------------------------------------------- Question 1 ----------------------------------------------------------------
+
+?- doit_argent(X,Y).
+X = anne,
+Y = barbara ;
+X = barbara,
+Y = cecile ;
+X = cecile,
+Y = barbara.
+
+------------------------------------------------------- Question 2 ----------------------------------------------------------------
+
+?- evite(X,Y).
+X = anne,
+Y = barbara ;
+X = barbara,
+Y = cecile ;
+X = cecile,
+Y = barbara ;
+X = anne,
+Y = cecile ;
+X = anne,
+Y = barbara ;
+X = anne,
+Y = cecile ;
+X = anne,
+Y = barbara ;
+X = anne,
+Y = cecile ;
+X = anne,
+Y = barbara ;
+...
+
+Les résultats ne sont pas finis (boucle infinie quand on veut afficher les autres résultats).
+
+------------------------------------------------------- Question 3 ----------------------------------------------------------------
+
+DES> evite(X,Y).
+
+{
+  evite(anne,barbara),
+  evite(anne,cecile),
+  evite(barbara,barbara),
+  evite(barbara,cecile),
+  evite(cecile,barbara),
+  evite(cecile,cecile)
+}
+Info: 6 tuples computed.
+
+Prolog ne mémorise pas les résultats atteints par la récursivité.
+

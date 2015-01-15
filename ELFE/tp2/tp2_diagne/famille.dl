@@ -1,0 +1,25 @@
+% Question 5 %
+pere(tom,amy).
+pere(jack,fred).
+pere(tony,carol2).
+pere(fred,carol3).
+
+mere(grace,amy).
+mere(amy,fred).
+mere(carol1,carol2).
+mere(carol2,carol3).
+
+parent(X,Y) :- pere(X,Y).
+parent(X,Y) :- mere(X,Y).
+
+ancetre(X,Y) :- parent(X,Y).
+ancetre(X,Y) :- parent(X,Z),ancetre(Z,Y).
+
+% Question 8 %
+personne(X) :- parent(X,Y).
+personne(X) :- parent(Y,X).
+
+mg(X,Y) :- personne(X),X=Y.
+
+% Question 9 %
+mg(Y,M) :- parent(Y,Z),parent(M,T),mg(Z,T).

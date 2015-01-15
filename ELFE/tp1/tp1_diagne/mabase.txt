@@ -1,0 +1,172 @@
+----------------------------------------------------- Question 12 ------------------------------------------------
+
+DES> employesBULL(X).                                                      
+
+{
+  employesBULL('Anne'),
+  employesBULL('Eric'),
+  employesBULL('Jacques'),
+  employesBULL('Odette')
+}
+Info: 4 tuples computed.
+
+----------------------------------------------------- Question 13 ------------------------------------------------
+
+DES> salaireJacques(X).                                                    
+
+{
+  salaireJacques(6000)
+}
+Info: 1 tuple computed. 
+
+----------------------------------------------------- Question 15 ------------------------------------------------
+
+DES> employe(A,B,C,D,'IBM',E).
+
+{
+  employe('Franck',45,'Homme',1999,'IBM',2),
+  employe('Jean',23,'Homme',2000,'IBM',1),
+  employe('Julie',24,'Femme',2001,'IBM',1),
+  employe('Sonia',35,'Femme',1996,'IBM',3)
+}
+Info: 4 tuples computed. 
+
+DES> employe(X,Y,'Femme',_,_,_).
+
+Info: Processing:
+  answer(X,Y) :-
+    employe(X,Y,'Femme',_,_,_).
+{
+  answer('Anne',45),
+  answer('Fabienne',30),
+  answer('Julie',24),
+  answer('Odette',40),
+  answer('Sonia',35)
+}
+Info: 5 tuples computed. 
+
+DES> salaire('IBM',X,Y).
+
+{
+  salaire('IBM',1,2000),
+  salaire('IBM',2,3000),
+  salaire('IBM',3,4500),
+  salaire('IBM',4,5500),
+  salaire('IBM',5,7500)
+}
+Info: 5 tuples computed.
+
+----------------------------------------------------- Question 16 ------------------------------------------------
+
+DES> jeune_employe('Marc','XEROX').
+
+{
+  jeune_employe('Marc','XEROX')
+}
+Info: 1 tuple computed.
+
+Oui, Marc est un jeune employé travaillant chez XEROX
+
+DES> jeune_employe('Jacques',_).
+
+Info: Processing:
+  answer :-
+    jeune_employe('Jacques',_).
+{
+}
+Info: 0 tuples computed. 
+
+Non, Jacques n'est pas un jeune employé
+
+DES> jeune_employe(X,'IBM').
+
+{
+  jeune_employe('Jean','IBM'),
+  jeune_employe('Julie','IBM')
+}
+Info: 2 tuples computed.
+
+Les jeunes employés travaillant chez IBM sont : Julie et Jean
+
+----------------------------------------------------- Question 17 ------------------------------------------------
+
+DES> cadre('Jacques').
+
+{
+  cadre('Jacques')
+}
+Info: 1 tuple computed.          
+
+DES> cadre('Julie').  
+
+{
+}
+Info: 0 tuples computed.
+
+Jacques est un cadre (échelon 4) mais pas Julie (échelon 1)
+
+----------------------------------------------------- Question 18 ------------------------------------------------
+
+DES> gagne_plus_que('Jacques','Marc').
+
+{
+  gagne_plus_que('Jacques','Marc')
+}
+Info: 1 tuple computed.          
+
+DES> gagne_plus_que('Jacques','Eric').
+
+{
+}
+Info: 0 tuples computed. 
+
+Jacques(6000) gagne plus que Marc(4500), mais pas plus qu'Eric(7500)
+
+----------------------------------------------------- Question 19 ------------------------------------------------
+
+DES> group_by(employe(_,_,_,_,Entreprise,_),[Entreprise],C=count).
+
+Info: Processing:
+  answer(Entreprise,K) :-
+    group_by(employe(_,_,_,_,Entreprise,_),[5],[Entreprise],C=count).
+{
+  answer('BULL',4),
+  answer('IBM',4),
+  answer('XEROX',2)
+}
+Info: 3 tuples computed. 
+
+----------------------------------------------------- Question 20 ------------------------------------------------
+
+DES> a_moins_de_35_ans(X).         
+
+{
+  a_moins_de_35_ans('Fabienne'),
+  a_moins_de_35_ans('Jacques'),
+  a_moins_de_35_ans('Jean'),
+  a_moins_de_35_ans('Julie'),
+  a_moins_de_35_ans('Marc'),
+  a_moins_de_35_ans('Sonia')
+}
+Info: 6 tuples computed.          
+
+DES> salaires_juniors(X,Y).        
+
+{
+  salaires_juniors('Fabienne',2500),
+  salaires_juniors('Jacques',6000),
+  salaires_juniors('Jean',2000),
+  salaires_juniors('Julie',2000),
+  salaires_juniors('Marc',4500),
+  salaires_juniors('Sonia',4500)
+}
+Info: 6 tuples computed.  
+
+DES> juniorRiche(X).
+
+{
+  juniorRiche('Jacques')
+}
+Info: 1 tuple computed. 
+
+On voit bien que Jacques est le junior le plus riche

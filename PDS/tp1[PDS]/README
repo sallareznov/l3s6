@@ -1,0 +1,24 @@
+Auteur : DIAGNE Salla
+
+Tout a été fait et est fonctionnel.
+
+Listing des fichiers du répertoire :
+	- maccess.c : fichier source du programme ./maccess (ajout du mode verbose à la commande Unix access)
+	- Makefile : fichier contenant les règles de compilation des programmes ./maccess et ./prlimit
+	- prlimit.c : fichier source du programme ./prlimit (affiche les valeurs de NAME_MAX et PATH_MAX de la bibliothèque limits.h)
+	- shell.txt : trace d'une session contenant les suites d'invocation de la commande maccess produisant l'ensemble des 7 erreurs possibles
+
+Instructions :
+	- se placer dans le dossier tp1_diagne et exécuter la commande make, ce qui aura pour effet de compiler les deux programmes (./maccess et ./prlimit)
+	- exécuter le programme ./prlimit en tapant
+		./prlimit
+	Ce programme affiche sur la sortie standard les valeurs de NAME_MAX et PATH_MAX
+	- exécuter le programme ./maccess en tapant
+		./maccess [mode] pathname
+	avec mode = -f | -r | -w | -x | -v (possibilité de taper plusieurs modes)
+			-f = vérifier l'existence du fichier
+			-r = vérifier le droit d'accès en lecture
+			-w = vérifier le droit d'accès en écriture
+			-x = vérifier le droit d'accès en exécution
+			-v = mode verbose (permet d'avoir un retour en impression si la commande génère une erreur)
+	Ce programme vérifie les droits d'accès au fichier de chemin pathname avec les différents modes mentionnés ci-haut

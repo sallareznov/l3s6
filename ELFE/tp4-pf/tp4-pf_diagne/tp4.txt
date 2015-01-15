@@ -1,0 +1,160 @@
+Question 2
+# let l = Cons(1,(Cons(2,(Cons (3,Cons(1,Vide)))))) ;;
+val l : liste_entiers = Cons (1, Cons (2, Cons (3, Cons (1, Vide))))
+
+Question 5
+# #trace longueur ;;
+longueur is now traced.
+
+# longueur l ;;
+longueur <-- Cons (1, Cons (2, Cons (3, Cons (1, Vide))))
+longueur <-- Cons (2, Cons (3, Cons (1, Vide)))
+longueur <-- Cons (3, Cons (1, Vide))
+longueur <-- Cons (1, Vide)
+longueur <-- Vide
+longueur --> 0
+longueur --> 1
+longueur --> 2
+longueur --> 3
+longueur --> 4
+- : int = 4
+
+Question 6
+# #trace rang ;;
+rang is now traced.
+
+# rang 3 l ;; 
+rang <-- 3
+rang --> <fun>
+rang* <-- Cons (1, Cons (2, Cons (3, Cons (1, Vide))))
+rang <-- 3
+rang --> <fun>
+rang* <-- Cons (2, Cons (3, Cons (1, Vide)))
+rang <-- 3
+rang --> <fun>
+rang* <-- Cons (3, Cons (1, Vide))
+rang* --> Int 0
+rang* --> Int 1
+rang* --> Int 2
+- : int_etendu = Int 2
+
+Question 11
+Voir le fichier syntaxe.ml
+
+Question 12
+Non, ce n'est pas ce à quoi je m'attendais
+
+Question 15
+Le type de la fonction eval n'est pas conforme à ce que demande l'interface
+
+Question 16
+# eval [] (Expr (Expr_int 12)) ;; 
+- : (string * valeur) list * valeur = ([], Valeur (Expr_int 12))
+
+# eval [] (Decl (Decla ("x",Expr_int 1))) ;;  
+- : (string * valeur) list * valeur =
+([("x", Valeur (Expr_int 1))], Liaison ("x", Valeur (Expr_int 1)))
+
+Question 17
+La fonction eval_expr est de type 'a -> Syntaxe.expression -> valeur
+C'est normal
+
+Question 19
+# let coi_assoc l1 =
+  match l1 with
+  | [] -> [] 
+  | x::r -> (x,int_of_char x)::(coi_assoc r) ;;
+val coi_assoc : char list -> (char * int) list = <fun>
+
+# let lc = coi_assoc ['H';'a';'s';'k';'e';'l';'l'] ;;
+val lc : (char * int) list =
+  [('H', 72); ('a', 97); ('s', 115); ('k', 107); ('e', 101); ('l', 108);
+   ('l', 108)]
+
+# List.assoc ;;
+- : 'a -> ('a * 'b) list -> 'b = <fun>
+
+# List.assoc 'k' lc ;;
+- : int = 107
+
+# List.assoc 'H' lc ;;
+- : int = 72
+
+# List.assoc 's' lc ;;
+- : int = 115
+
+# List.assoc 'b' lc ;;
+Exception: Not_found.
+
+Question 21
+val eval_expr : (string * valeur) list -> Syntaxe.expression -> valeur =
+  <fun>
+
+Question 23
+# eval_expr [] (Expr_fonc ("x",Expr_binaire (Add,Expr_var "x",Expr_int 1))) ;;
+- : valeur =
+Valeur (Expr_fonc ("x", Expr_binaire (Add, Expr_var "x", Expr_int 1)))
+
+# eval [] (Decl(Decla("f",Expr_fonc("x",Expr_binaire(Add,Expr_var "x",Expr_int 1))))) ;;
+- : (string * valeur) list * valeur =
+([("f",
+   Valeur (Expr_fonc ("x", Expr_binaire (Add, Expr_var "x", Expr_int 1))))],
+ Liaison
+  ("f",
+   Valeur (Expr_fonc ("x", Expr_binaire (Add, Expr_var "x", Expr_int 1)))))
+
+Question 26
+# eval_expr [] (Expr_binaire (Add,(Expr_int 2),(Expr_int 4))) ;;
+- : valeur = Valeur (Expr_int 6)
+
+# eval_expr [] (Expr_unaire (Moins,(Expr_int 2))) ;;            
+- : valeur = Valeur (Expr_int (-2))
+
+# eval_expr [] (Expr_unaire (Not,(Expr_int 2))) ;;  
+Exception: Typage_incorrect.
+
+Question 30
+# eval_expr [] (Expr_appl ((Expr_fonc("x",Expr_binaire(Add,Expr_var "x",Expr_var "y"))),(Expr_binaire(Add,Expr_int 3,Expr_int 1)))) ;;
+Exception: Variable_non_liee "y".
+
+# eval_expr [("y",Valeur(Expr_int 2))] (Expr_appl ((Expr_fonc("x",Expr_binaire(Add,Expr_var "x",Expr_var "y"))),(Expr_binaire(Add,Expr_int 3,Expr_int 1)))) ;;
+- : valeur = Valeur (Expr_int 6)
+
+Question 31
+let signe = (fun n -> (if (n = 0) then 0 else (if (n <= 0) then (- 1) else 1)))
+
+?- let signe = (fun n -> (if (n = 0) then 0 else (if (n <= 0) then (- 1) else 1)))
+val signe = (fun n -> (if (n = 0) then 0 else (if (n <= 0) then (- 1) else 1)))
+?- (signe 5)
+-> 1
+?- (signe (- 5))
+-> -1
+?- (signe 0)    
+-> 0
+?- (signe ((fun x -> (- x)) (- 5)))
+-> 1
+
+Question 32
+let fact = (fun n -> (if (n = 0) then 1 else (n * (fact (n - 1)))))
+
+?- let fact = (fun n -> (if (n = 0) then 1 else (n * (fact (n - 1)))))
+val fact = (fun n -> (if (n = 0) then 1 else (n * (fact (n - 1)))))
+?- (fact 5)
+-> 120
+?- (fact 0)
+-> 1
+?- (fact 8)
+-> 40320
+
+let fibo = (fun n -> (if (n = 0) then 0 else (if (n = 1) then 1 else ((fibo (n - 1)) + (fibo (n - 2))))))
+
+?- let fibo = (fun n -> (if (n = 0) then 0 else (if (n = 1) then 1 else ((fibo (n - 1)) + (fibo (n - 2))))))
+val fibo = (fun n -> (if (n = 0) then 0 else (if (n = 1) then 1 else ((fibo (n - 1)) + (fibo (n - 2))))))
+?- (fibo 5)
+-> 5
+?- (fibo 6)
+-> 8
+?- (fibo 7)
+-> 13
+?- (fibo 8)
+-> 21

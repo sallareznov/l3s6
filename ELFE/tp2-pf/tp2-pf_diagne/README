@@ -1,0 +1,17 @@
+Auteur : Salla DIAGNE
+
+Toutes les questions ont été traitées, et bien traitées.
+
+Listing des fichiers du répertoire tp2-pf_diagne :
+	- lsysteme.ml : de la question 1 à la question 4
+	- tortue.ml : de la question 5 à la question 19
+	- Makefile pour produire un exécutable nommé mlsysteme
+
+Instructions :
+	- se placer dans le répertoire tp2-pf_diagne et taper la commande make pour produire l'exécutable mlsysteme (qui résume tout le TP)
+	- tester l'exécutable en tapant la commande :
+		./mlsysteme ls n avec
+			ls = le nom d'un l-système (à choisir dans la liste : vonKoch1, vonKoch2, vonKoch3, hilbert, peano, ileDeKoch, brindille et broussaille)
+			n = un entier pas trop grand
+			Ce programme dessine dans une fenêtre graphique la dérivée n-ième de l'axiome du l-système ls
+			Taper ./mlsysteme -h pour voir en détails les instructions mentionnées ci-dessus

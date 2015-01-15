@@ -1,0 +1,20 @@
+Auteur : DIAGNE Salla
+
+Toutes les questions du TP ont été traitées, et bien traitées.
+
+Listing des fichiers du répertoire :
+	- Makefile
+	- forkfork.c : fichier source contenant la fonction utilisant la technique du double fork
+	- forkfork.h : fichier d'entête du programme race
+	- ff.c : fichier contenant le programme de la fonction forkfork
+	- ff.txt : session shell du programme ff
+	- race.c : fichier source contenant le programme de la commande race
+	- race.txt : session shell du programme race
+
+Instructions :
+	- se placer dans le dossier tp4_diagne et exécuter la commande make, ce qui aura pour effet de compiler les programmes ff et race
+	- exécuter les programmes en tapant :
+		./ff
+			Ce programme utilise la technique du double fork pour faire exécuter une fonction par un processus petit-fils
+		./race
+			Ce programme simule une course entre 10 processus

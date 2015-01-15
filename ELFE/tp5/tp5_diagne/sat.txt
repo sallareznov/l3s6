@@ -1,0 +1,55 @@
+------------------------------------------------------- Question 1 ----------------------------------------------------------------
+
+DES> /[sat1].       
+
+Info: 11 rules consulted.
+
+DES> sat(A,B,C,D,E).
+
+{
+  sat(0,1,0,0,0),
+  sat(0,1,1,0,0),
+  sat(0,1,1,1,0),
+  sat(0,1,1,1,1),
+  sat(1,0,0,0,0),
+  sat(1,0,0,1,0),
+  sat(1,0,0,1,1),
+  sat(1,0,1,0,0),
+  sat(1,0,1,1,0),
+  sat(1,0,1,1,1),
+  sat(1,1,0,0,0),
+  sat(1,1,1,0,0),
+  sat(1,1,1,1,0),
+  sat(1,1,1,1,1)
+}
+Info: 14 tuples computed.
+
+------------------------------------------------------- Question 2 ----------------------------------------------------------------
+
+5 booléens => toutes les combinaisons booléennes possibles = 2 puissance 5 = 32.
+Le pourcentage des solutions pour la formule précédente = (14 / 32) * 100 = 43.75%
+
+Vérification avec l'interprêteur Ocaml :
+
+salla@salla-Satellite-C655D ~/workspace/ELFE/PL/tp5_pl[ELFE] $ ledit ocaml
+        Objective Caml version 3.12.1
+
+# ((14.) /. (32.)) *. 100. ;;
+- : float = 43.75
+
+------------------------------------------------------- Question 3 ----------------------------------------------------------------
+
+DES> /[sat2].   
+
+Info: 9 rules consulted.
+
+DES> sat(A,B,D,E).
+
+{
+  sat(1,0,1,1),
+  sat(1,1,0,0),
+  sat(1,1,0,1),
+  sat(1,1,1,0),
+  sat(1,1,1,1)
+}
+Info: 5 tuples computed. 

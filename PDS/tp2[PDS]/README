@@ -1,0 +1,22 @@
+Auteur : DIAGNE Salla
+
+Toutes les questions du TP ont été traitées, et bien traitées.
+
+Listing des fichiers du répertoire :
+	- Makefile
+	- mdu.c : fichier source contenant le programme de la commande mdu
+	- mdu.h : fichier d'entête du programme
+	- table.c : fichier source contenant l'implantation d'une table de hachage
+	- table.h : fichier d'entête du fichier table.c
+
+Instructions :
+	- se placer dans le dossier tp2_diagne et exécuter la commande make, ce qui aura pour effet de compiler le programme mdu
+	- exécuter le programme en tapant :
+		./mdu ([OPTIONS]<->[FICHIER|REPERTOIRE]*)?
+		Options :
+			-L	indique de suivre les liens symboliques
+			-b	indique de rapporter les tailles apparentes
+		Par défaut, les tailles réelles sont rapportées, et les liens
+		symboliques ne sont pas suivis.
+		Ce programme rapporte la taille disque utilisée par un fichier ou un répertoire et l'ensemble de ses fichiers (y compris ses sous-répertoires).
+		Les arguments de la commande peuvent être écrits dans n'importe quel ordre

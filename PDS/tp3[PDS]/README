@@ -1,0 +1,21 @@
+Auteur : DIAGNE Salla
+
+Toutes les questions du TP ont été traitées, et bien traitées.
+
+stail = version simpliste de tail
+utail = version utile de tail
+
+Listing des fichiers du répertoire :
+	- Makefile
+	- stail.c : fichier source contenant le programme de la commande stail
+	- stail.h : fichier d'entête du programme stail
+	- utail.c : fichier source contenant le programme de la commande utail
+	- utail.h : fichier d'entête du programme utail
+
+Instructions :
+	- se placer dans le dossier tp3_diagne et exécuter la commande make, ce qui aura pour effet de compiler les programmes stail et utail
+	- exécuter les programmes en tapant :
+		./tail -n nb path (avec tail = stail | utail)
+			Ce programme affiche les nb dernières lignes du fichier path
+			Si l'option -n n'est pas spécifiée, le programme affiche les 10
+			dernières lignes du fichier

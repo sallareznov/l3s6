@@ -1,0 +1,15 @@
+Auteur : DIAGNE Salla
+
+Toutes les questions ont été traitées et tout est fonctionnel.
+
+Listing des fichiers créés ou modifiés et questions que ceux-ci traitent :
+	- tp4.ml : questions 1,2,3,4,5,6
+	- syntaxe.ml : question 11
+	- evaluation.ml : questions 18,20,22,24,25,27,28,29
+	- tp4.txt : 2,5,6,11,12,15,16,17,19,21,23,26,30,31,32
+
+Instructions :
+	- se placer dans le fichier diagne_tp4-pf et exécuter les commandes :
+		make minicaml
+		ledit ./minicaml
+	- tester

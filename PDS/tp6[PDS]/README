@@ -1,0 +1,8 @@
+Auteur : Salla DIAGNE
+
+Tout a été fait et est fonctionnel
+
+Instructions :
+	- se placer dans le dossier tp6_diagne et exécuter la commande make pour générer les fichiers objets et l'exécutable final
+	- taper ./mshell -v pour lancer le mini-shell avec le mode verbose
+	- tester

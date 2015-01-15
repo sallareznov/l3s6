@@ -1,0 +1,113 @@
+RESEAUX IP
+
+
+/26 /26 /26 /26 /26
+
+MOI
+
+sudo ifconfig eth0 192.168.13.190/26
+
+sudo ifconfig eth1 192.168.13.193/26
+
+sudo sysctl -w net.ipv4.ip_forward=1
+
+sudo route add default gw 192.168.13.129
+
+Table de routage IP du noyau
+Destination     Passerelle      Genmask         Indic Metric Ref    Use Iface
+0.0.0.0         192.168.13.129  0.0.0.0         UG    0      0        0 eth0
+192.168.13.128  0.0.0.0         255.255.255.192 U     0      0        0 eth0
+192.168.13.192  0.0.0.0         255.255.255.192 U     0      0        0 eth1
+
+PEMBÉ
+
+sudo ifconfig eth0 192.168.13.65/26
+
+sudo ifconfig eth1 192.168.13.1/26
+
+sudo sysctl -w net.ipv4.ip_forward=1
+
+sudo route add default gw 192.168.13.126
+
+LÉO
+
+sudo ifconfig eth0 192.168.13.126/26
+
+sudo ifconfig eth1 192.168.13.129/26
+
+sudo sysctl -w net.ipv4.ip_forward=1
+
+sudo route add -net 192.168.13.0 netmask 255.255.255.192 gw 192.168.13.65
+
+sudo route add -net 192.168.13.192 netmask 255.255.255.192 gw 192.168.13.190
+
+A
+
+sudo ifconfig eth0 192.168.13.2/26
+
+sudo route add default gw 192.168.13.1
+
+B
+
+sudo ifconfig eth0 192.168.13.194/26
+
+sudo route add default gw 192.168.13.193
+
+TOUT EST CÂBLÉ EN CROISÉ
+
+
+
+
+/24 /27 /27 /25 /26
+
+MOI
+
+sudo ifconfig eth0 192.168.13.254/27
+
+sudo ifconfig eth1 192.168.13.129/26
+
+sudo sysctl -w net.ipv4.ip_forward=1
+
+sudo route add default gw 192.168.13.222
+
+Table de routage IP du noyau
+Destination     Passerelle      Genmask         Indic Metric Ref    Use Iface
+0.0.0.0         192.168.13.225  0.0.0.0         UG    0      0        0 eth0
+192.168.13.128  0.0.0.0         255.255.255.192 U     0      0        0 eth1
+192.168.13.224  0.0.0.0         255.255.255.224 U     0      0        0 eth0
+
+PEMBÉ
+
+sudo ifconfig eth0 192.168.13.193/27
+
+sudo ifconfig eth1 192.168.13.1/25
+
+sudo sysctl -w net.ipv4.ip_forward=1
+
+sudo route add default gw 192.168.13.225
+
+LÉO
+
+sudo ifconfig eth0 192.168.13.222/27
+
+sudo ifconfig eth1 192.168.13.225/27
+
+sudo sysctl -w net.ipv4.ip_forward=1
+
+sudo route add -net 192.168.13.192 netmask 255.255.255.128 gw 192.168.13.222
+
+sudo route add -net 192.168.13.224 netmask 255.255.255.192 gw 192.168.13.225
+
+A
+
+sudo ifconfig eth0 192.168.13.2/25
+
+sudo route add default gw 192.168.13.1
+
+B
+
+sudo ifconfig eth0 192.168.13.194/26
+
+sudo route add default gw 192.168.13.129
+
+TOUT EST CÂBLÉ EN CROISÉ

@@ -1,0 +1,47 @@
+------------------------------------------------------- Question 2 ----------------------------------------------------------------
+
+Soient P(c) le fait qu'il y ait une princesse dans la cellule c et T(c) le fait qu'il y ait un tigre dans la cellule
+affiche_1 : P(1) ^ T(2)
+affiche_2 : ((P(1) ^ T(2)) || (T(1) ^ P(2)))
+
+------------------------------------------------------- Question 3 ----------------------------------------------------------------
+
+((affiche_1 ^ not(affiche_2)) || (affiche_2 ^ not(affiche_1)))
+
+------------------------------------------------------- Question 4 ----------------------------------------------------------------
+
+DES> contenu(X).
+
+{
+  contenu(princesse),
+  contenu(tigre)
+}
+Info: 2 tuples computed.
+
+DES> affiche_1(X,Y).
+
+{
+  affiche_1(princesse,tigre)
+}
+Info: 1 tuple computed.
+
+DES> affiche_2(X,Y).
+
+{
+  affiche_2(princesse,tigre),
+  affiche_2(tigre,princesse)
+}
+Info: 2 tuples computed.
+
+DES> solutions(X,Y). 
+
+{
+}
+Info: 0 tuples computed.          
+
+DES> alt_solutions(X,Y). 
+
+{
+  alt_solutions(tigre,princesse)
+}
+Info: 1 tuple computed. 

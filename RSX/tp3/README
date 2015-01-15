@@ -1,0 +1,28 @@
+Auteurs :
+MATA Pembé
+DIAGNE Salla
+
+Tout a été fait et tout est fonctionnel. :)
+
+1 Le protocole UDP -> voir dossier UDP
+
+2 DNS : Domain Name Server -> voir dossier DNS
+
+Listing des fichiers source du TP (à partir du répertoire tp3_mata-diagne) :
+	- UDP/Java/src/ReceiveUDP.java : contient un programme Java qui écoute sur le port UDP en argument et affiche les messages reçus sous la forme de chaînes de caractères
+	- UDP/C/sendUDP.c : contient un programme en C qui prend 3 arguments : une machine (hostname), un port (port) et un message (message).
+						Ce programme envoie le message message à la machine hostname sur le port port
+	- DNS/Java/src/DNS.java : Ce programme envoie une requête DNS au serveur DNS d'adresse 172.18.12.9 sur le port UDP 53 puis écoute sur le port et affiche la réponse et les 								adresses IP
+
+Instructions :
+	ReceiveUDP
+	- se placer dans le répertoire tp3_mata-diagne/UDP/Java et taper make pour générer le fichier .class de la classe ReceiveUDP dans le répertoire classes
+	- se placer dans le répertoire tp3_mata-diagne/UDP/Java/classes et exécuter la commande : java ReceiveUDP port (voir mode d'utilisation plus haut)
+
+	sendUDP
+	- se placer dans le répertoire tp3_mata-diagne/UDP/C et taper make pour générer l'exécutable sendUDP
+	- dans le même répertoire, exécuter la commande : ./sendUDP hostname port message (voir mode d'utilisation plus haut)
+
+	DNS
+	- se placer dans le répertoire tp3_mata-diagne/DNS/Java et taper make pour générer le fichier .class de la classe DNS dans le répertoire classes
+	- se placer dans le répertoire tp3_mata-diagne/DNS/Java/classes et exécuter la commande : java DNS adresse (voir mode d'utilisation plus haut)

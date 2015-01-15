@@ -1,0 +1,131 @@
+----------------------------------------------------- Question 2 -------------------------------------------------
+
+DES> /c jalousie.dl
+
+Info: 9 rules consulted.
+
+----------------------------------------------------- Question 3 -------------------------------------------------
+
+DES> /listing
+
+aime(lapin,mon_chou).
+aime(marcellus,mia).
+aime(mon_chou,lapin).
+aime(vincent,mia).
+aime(vincent,pierre).
+femme(jody).
+femme(mia).
+femme(yolande).
+jaloux(X,Y) :-
+  aime(X,Z),
+  aime(Y,Z).
+
+Info: 9 rules listed.
+
+DES> /listing femme
+
+femme(jody).
+femme(mia).
+femme(yolande).
+
+Info: 3 rules listed.
+
+----------------------------------------------------- Question 4 -------------------------------------------------
+
+DES> but.
+
+{
+  but
+}
+Info: 1 tuple computed. 
+
+La requête nous renvoie une réponse signifiant "vrai"
+
+----------------------------------------------------- Question 5 -------------------------------------------------
+
+DES> femme(X).
+
+{
+  femme(jody),
+  femme(mia),
+  femme(yolande)
+}
+Info: 3 tuples computed. 
+
+----------------------------------------------------- Question 6 -------------------------------------------------
+
+DES> femme(X),aime(vincent,X).
+
+Info: Processing:
+  answer(X) :-
+    femme(X),
+    aime(vincent,X).
+{
+  answer(mia)
+}
+Info: 1 tuple computed.
+
+----------------------------------------------------- Question 7 -------------------------------------------------
+
+DES> aime(vincent,X),not(femme(X)).
+
+Info: Processing:
+  answer(X) :-
+    aime(vincent,X),
+    not(femme(X)).
+{
+  answer(pierre)
+}
+Info: 1 tuple computed.
+
+Inversion de l'ordre d'apparition des deux prédicats dans la requête...
+
+DES> not(femme(X)),aime(vincent,X). 
+
+Error: not(femme(X)) might not be correctly computed because of the unrestricted variable(s):
+  [X]
+
+not(femme(X)) ne passe pas. Ceci est dû au fait que la rêquete n'est pas sûre (la variable X n'apparaît pas préalablement
+dans un prédicat positif [comme pour la première requête avec aime(vincent,X) devant]). On remédie au problème soit :
+- en inversant le prédicat positif et celui négatif (faisant ainsi apparaître au préalable X dans un prédicat positif)
+- en ajoutant, avant le prédicat négatif, un prédicat positif qui fait apparaître la variable X
+
+----------------------------------------------------- Question 8 -------------------------------------------------
+
+DES> jaloux(vincent,X).
+
+{
+  jaloux(vincent,marcellus),
+  jaloux(vincent,vincent)
+}
+Info: 2 tuples computed. 
+
+----------------------------------------------------- Question 9 -------------------------------------------------
+
+On empêche l'auto-jalousie en rajoutant une contraite de différenciation sur les deux variables du prédicat (X\=Y)
+la règle jaloux(X,Y) :- aime(X,Z),aime(Y,Z). devient jaloux(X,Y) :- aime(X,Z),aime(Y,Z),X\=Y.
+
+Ce qui donne comme résultat :
+
+DES> jaloux(vincent,X).            
+
+{
+  jaloux(vincent,marcellus)
+}
+Info: 1 tuple computed. 
+
+----------------------------------------------------- Question 10 ------------------------------------------------
+
+DES> jaloux(vincent,_).
+
+Info: Processing:
+  answer :-
+    jaloux(vincent,_).
+{
+  answer
+}
+Info: 1 tuple computed.
+
+Le prédicat unaire _ renvoie vrai (interprété par la réponse answer dans le résultat de la requête) s'il existe un
+atome qui vérifie le prédicat, et faux (interprété par...rien ! L'interpréteur ne renvoie pas de résultat) s'il n'en
+existe pas

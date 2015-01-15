@@ -1,0 +1,29 @@
+% Question 10 %
+sert(mcevans,lachouffe).
+sert(mcevans,leffe).
+sert(omnia,lachouffe).
+sert(taverneflamande,lachni).
+
+frequente(timoleon,mcevans).
+frequente(raymond,omnia).
+
+aime(timoleon,lachouffe).
+aime(raymond,leffe).
+
+content(D) :- frequente(D,P),sert(P,B),aime(D,B).
+
+devrait_frequenter(D,P) :- sert(P,B),aime(D,B).
+
+buveur(D) :- aime(D,_).
+buveur(D) :- frequente(D,_).
+
+triste(D) :- buveur(D),not(content(D)).
+
+pub(P) :- sert(P,_).
+pub(P) :- frequente(_,P).
+
+devrait_pas_frequenter(D,P) :- buveur(D),pub(P),not(devrait_frequenter(D,P)).
+
+pas_tres_content(D) :- frequente(D,P),devrait_pas_frequenter(D,P).
+
+tres_content(D) :- buveur(D),not(pas_tres_content(D)).

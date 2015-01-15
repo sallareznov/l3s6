@@ -1,0 +1,23 @@
+% Question 3
+
+bool(0).
+bool(1).
+
+% En CNF, A and (B or (D and E)) <=> A and ((B or D) and (B or E))
+
+% p1 = A
+p1(A,B,D,E) :- A=1,bool(A),bool(B),bool(D),bool(E).
+
+% p2 = B or D
+p2(A,B,D,E) :- B=1,bool(A),bool(B),bool(D),bool(E).
+p2(A,B,D,E) :- D=1,bool(A),bool(B),bool(D),bool(E).
+
+% p3 = B or E
+p3(A,B,D,E) :- B=1,bool(A),bool(B),bool(D),bool(E).
+p3(A,B,D,E) :- E=1,bool(A),bool(B),bool(D),bool(E).
+
+% r = p1 and p2 and p3
+r(A,B,D,E) :- p1(A,B,D,E),p2(A,B,D,E),p3(A,B,D,E).
+
+% sat = r
+sat(A,B,D,E) :- r(A,B,D,E),bool(A),bool(B),bool(D),bool(E).

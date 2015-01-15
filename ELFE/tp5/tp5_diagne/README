@@ -1,0 +1,11 @@
+Auteur : DIAGNE Salla
+
+Toutes les questions ont été traitées, et bien traitées.
+
+Listing des types de fichier du répertoire tp5_diagne :
+	- fichiers .dl : contiennent les règles
+	- fichiers .txt : contiennent les résultats des requêtes (simples ou qui vérifient les règles des fichiers .dl) invoquées depuis l'interpréteur DES et des réponses à certaines questions
+
+	sat1.dl, sat2.dl et sat.txt : de la question 1 à la question 3
+	barbier.dl et barbier.txt : de la question 4 à la question 8
+	graphe.dl, graphe.txt et modele_minimal.txt : de la question 9 à la question 15

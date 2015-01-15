@@ -1,0 +1,77 @@
+------------------------------------------------------- Question 5 ----------------------------------------------------------------
+
+DES> ancetre(X,Y). 
+
+{
+  ancetre(amy,carol3),
+  ancetre(amy,fred),
+  ancetre(carol1,carol2),
+  ancetre(carol1,carol3),
+  ancetre(carol2,carol3),
+  ancetre(fred,carol3),
+  ancetre(grace,amy),
+  ancetre(grace,carol3),
+  ancetre(grace,fred),
+  ancetre(jack,carol3),
+  ancetre(jack,fred),
+  ancetre(tom,amy),
+  ancetre(tom,carol3),
+  ancetre(tom,fred),
+  ancetre(tony,carol2),
+  ancetre(tony,carol3)
+}
+Info: 16 tuples computed.
+
+------------------------------------------------------- Question 7 ----------------------------------------------------------------
+
+Rendu sur papier.
+
+------------------------------------------------------- Question 8 ----------------------------------------------------------------
+
+DES> mg(X,Y). 
+
+{
+  mg(amy,amy),
+  mg(carol1,carol1),
+  mg(carol2,carol2),
+  mg(carol3,carol3),
+  mg(fred,fred),
+  mg(grace,grace),
+  mg(jack,jack),
+  mg(tom,tom),
+  mg(tony,tony)
+}
+Info: 9 tuples computed. 
+
+------------------------------------------------------- Question 9 ----------------------------------------------------------------
+
+DES> mg(X,Y). 
+
+{
+  mg(amy,amy),
+  mg(amy,carol1),
+  mg(amy,jack),
+  mg(amy,tony),
+  mg(carol1,amy),
+  mg(carol1,carol1),
+  mg(carol1,jack),
+  mg(carol1,tony),
+  mg(carol2,carol2),
+  mg(carol2,fred),
+  mg(carol3,carol3),
+  mg(fred,carol2),
+  mg(fred,fred),
+  mg(grace,grace),
+  mg(grace,tom),
+  mg(jack,amy),
+  mg(jack,carol1),
+  mg(jack,jack),
+  mg(jack,tony),
+  mg(tom,grace),
+  mg(tom,tom),
+  mg(tony,amy),
+  mg(tony,carol1),
+  mg(tony,jack),
+  mg(tony,tony)
+}
+Info: 25 tuples computed.

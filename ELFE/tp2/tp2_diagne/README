@@ -1,0 +1,11 @@
+Auteur : DIAGNE Salla
+
+Toutes les questions ont été traitées, et bien traitées.
+
+Listing des types de fichier du répertoire tp2_diagne :
+	- fichiers .dl : contiennent les règles
+	- fichiers .txt : contiennent les résultats des requêtes (simples ou qui vérifient les règles des fichiers .dl) invoquées depuis l'interpréteur DES
+
+	princesses_tigres.dl et princesses_tigres.txt : Exercice 1
+	famille.dl et famille.txt : Exercice 2
+	bar.dl et bar.txt : Exercice 3

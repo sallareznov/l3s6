@@ -1,0 +1,100 @@
+------------------------------------------------------- Question 4 ----------------------------------------------------------------
+
+Le programme n'est pas stratifiable
+
+DES> /verbose on
+
+Info: Verbose output is on.
+
+DES> /[barbier].
+
+Info: Consulting barbier...
+  homme(barbier).
+  homme(maire).
+  rase(barbier,H) :-
+    homme(H),
+    not(rase(H,H)).
+  end_of_file.
+Info: 3 rules consulted.
+Info: Computing predicate dependency graph...
+Info: Computing strata...
+Warning: Non stratifiable program.
+
+------------------------------------------------------- Question 5 ----------------------------------------------------------------
+
+DES> rase(X,Y).
+
+Info: Parsing query...
+Info: Query successfully parsed.
+Info: Solving query rase(X,Y)...
+Info: Computing strata...
+Warning: Unable to ensure correctness/completeness for this query.
+Info: Displaying query answer...
+Info: Sorting answer...
+{
+  rase(barbier,maire)
+}
+Info: 1 tuple computed.          
+Undefined:
+{
+  rase(barbier,barbier)
+}
+Info: 1 tuple undefined.  
+
+L'information prouvée vraie est que le barbier rase le maire.
+La problématique est de savoir si le barbier se rase lui-même.
+
+------------------------------------------------------- Question 6 ----------------------------------------------------------------
+
+Grâce à la commande /list_et
+
+DES> /list_et
+
+Answers:
+{
+  homme(barbier),
+  homme(maire),
+  not(rase(maire,maire)),
+  rase(barbier,maire)
+}
+Info: 4 tuples in the answer table.          
+Calls:
+{
+  homme(A),
+  not(rase(barbier,barbier)),
+  not(rase(maire,maire)),
+  rase(A,B)
+}
+Info: 4 tuples in the call table.  
+
+L'information négative prouvée par DES est que le maire ne se rase pas lui-même.
+L'information pour laquelle DES ne donne pas de valeur de vérité est le fait que le barbier se rase lui-même ou pas
+
+------------------------------------------------------- Question 7 ----------------------------------------------------------------
+
+DES> est_rase(X).
+
+Info: Parsing query...
+Info: Query successfully parsed.
+Info: Solving query est_rase(X)...
+Info: Computing strata...
+Warning: Unable to ensure correctness/completeness for this query.
+Info: Displaying query answer...
+Info: Sorting answer...
+{
+  est_rase(barbier),
+  est_rase(maire)
+}
+Info: 2 tuples computed.          
+Undefined:
+{
+  rase(barbier,barbier)
+}
+Info: 1 tuple undefined. 
+
+DES est capable de dire que le barbier est rasé, mais ne sait pas s'il l'a fait lui-même ou pas.
+Ceci s'explique parce que DES ne peut pas prouver que le barbier n'est pas rasé, donc il en conclut qu'il est rasé.
+
+------------------------------------------------------- Question 8 ----------------------------------------------------------------
+
+Oui c'est possible, mais cela changerait le but du programme.

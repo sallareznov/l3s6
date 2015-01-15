@@ -1,0 +1,36 @@
+============================================================> race <=======================================================
+
+salla@salla-Satellite-C655D ~/workspace/PDS/tp4 $ ./race
+[19808] Je suis arrivé à la moitié de la course
+[19811] Je suis arrivé à la moitié de la course
+[19809] Je suis arrivé à la moitié de la course
+[19810] Je suis arrivé à la moitié de la course
+[19802] Je suis arrivé à la moitié de la course
+[19806] Je suis arrivé à la moitié de la course
+[19805] Je suis arrivé à la moitié de la course
+[19807] Je suis arrivé à la moitié de la course
+[19803] Je suis arrivé à la moitié de la course
+[19811] J'ai fini la course
+[19809] J'ai fini la course
+[19804] Je suis arrivé à la moitié de la course
+[19808] J'ai fini la course
+[19810] J'ai fini la course
+[19806] J'ai fini la course
+[19804] J'ai fini la course
+[19802] J'ai fini la course
+[19803] J'ai fini la course
+[19807] J'ai fini la course
+[19805] J'ai fini la course
+Classement :
+  1er : 19811
+ 2ème : 19809
+ 3ème : 19808
+ 4ème : 19810
+ 5ème : 19806
+ 6ème : 19804
+ 7ème : 19803
+ 8ème : 19802
+ 9ème : 19807
+10ème : 19805
+
+Conclusion : Le processus qui commence en premier la même tâche que d'autres, n'est pas forcément celui qui termine le premier.

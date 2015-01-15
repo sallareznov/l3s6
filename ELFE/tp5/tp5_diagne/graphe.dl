@@ -1,0 +1,58 @@
+g(3,2).
+g(3,17).
+g(4,1).
+g(4,3).
+g(4,5).
+g(5,17).
+g(5,11).
+g(6,4).
+g(6,7).
+g(6,10).
+g(7,8).
+g(7,10).
+g(8,9).
+g(9,11).
+g(9,12).
+g(10,5).
+g(11,15).
+g(12,13).
+g(13,14).
+g(13,16).
+g(15,13).
+g(15,16).
+g(16,18).
+g(17,16).
+
+node(X) :- g(X,_).
+node(X) :- g(_,X).
+
+% Question 9
+
+pas_bloque(X) :- g(X,_).
+
+bloque(X) :- node(X),not(pas_bloque(X)).
+
+p1(X) :- g(X,Y),bloque(Y).
+
+% Question 10
+
+pnp2(X) :- g(X,Y),not(p1(Y)),not(bloque(Y)).
+
+% Question 11
+
+p3(X) :- g(X,Y),not(p1(Y)),g(Y,Z),p1(Z).
+
+% Question 14
+
+p5(X) :- g(X,Y),not(p1(Y)),g(Y,Z),p3(Z).
+p7(X) :- g(X,Y),not(p1(Y)),g(Y,Z),p5(Z).
+p9(X) :- g(X,Y),not(p1(Y)),g(Y,Z),p7(Z).
+p11(X) :- g(X,Y),not(p1(Y)),g(Y,Z),p9(Z).
+p13(X) :- g(X,Y),not(p1(Y)),g(Y,Z),p11(Z).
+p15(X) :- g(X,Y),not(p1(Y)),g(Y,Z),p13(Z).
+p17(X) :- g(X,Y),not(p1(Y)),g(Y,Z),p15(Z).
+
+% Question 15
+
+p(X) :- p1(X).
+p(X) :- g(X,Y),not(p1(Y)),g(Y,Z),p(Z).

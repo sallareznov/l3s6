@@ -1,0 +1,12 @@
+% Question 12 %
+
+det(X,Y) :- the(X,Y).
+det(X,Y) :- a(X,Y).
+
+n(X,Y) :- man(X,Y).
+n(X,Y) :- unicorn(X,Y).
+n(X,Y) :- telescope(X,Y).
+
+v(X,Y) :- sees(X,Y).
+
+prep(X,Y) :- with(X,Y).

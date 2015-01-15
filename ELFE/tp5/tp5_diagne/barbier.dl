@@ -1,0 +1,10 @@
+% Question 4 %
+
+homme(barbier).
+homme(maire).
+
+rase(barbier,H) :- homme(H),not(rase(H,H)).
+
+% Question 7 %
+
+est_rase(X) :- rase(barbier,X).

@@ -1,0 +1,9 @@
+% Question 4 %
+contenu(princesse).
+contenu(tigre).
+
+affiche_1(princesse,tigre).
+affiche_2(X,Y) :- contenu(X),contenu(Y),X\=Y.
+
+solutions(X,Y) :- affiche_1(X,Y),not(affiche_2(X,Y)).
+alt_solutions(X,Y) :- affiche_2(X,Y),not(affiche_1(X,Y)).

@@ -1,0 +1,24 @@
+% Question 21 %
+g(a,b).
+g(b,c).
+g(b,f).
+g(d,a).
+g(d,e).
+g(e,f).
+g(e,g).
+g(f,g).
+
+% Question 22 %
+c(X,Y) :- g(X,Y).
+c(X,Z) :- g(X,Y),c(Y,Z).
+
+% Question 23 %
+g(c,a).
+g(c,f).
+
+% Question 24 %
+pair(X,Y) :- g(X,Z),g(Z,Y).
+pair(X,Z) :- g(X,Y),impair(Y,Z).
+
+impair(X,Y) :- g(X,Y).
+impair(X,Z) :- g(X,Y),pair(Y,Z).

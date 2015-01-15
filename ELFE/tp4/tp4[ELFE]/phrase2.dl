@@ -1,0 +1,10 @@
+% Question 10 %
+
+the(0,1).
+man(1,2).
+sees(2,3).
+a(3,4).
+unicorn(4,5).
+with(5,6).
+a(6,7).
+telescope(7,8).

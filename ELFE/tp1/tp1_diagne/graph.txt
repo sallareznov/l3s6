@@ -1,0 +1,108 @@
+----------------------------------------------------- Question 22 ------------------------------------------------
+
+DES> c(X,Y).    
+
+{
+  c(a,b),
+  c(a,c),
+  c(a,f),
+  c(a,g),
+  c(b,c),
+  c(b,f),
+  c(b,g),
+  c(d,a),
+  c(d,b),
+  c(d,c),
+  c(d,e),
+  c(d,f),
+  c(d,g),
+  c(e,f),
+  c(e,g),
+  c(f,g)
+}
+Info: 16 tuples computed.  
+
+----------------------------------------------------- Question 23 ------------------------------------------------
+
+DES> c(X,Y).    
+
+{
+  c(a,a),
+  c(a,b),
+  c(a,c),
+  c(a,f),
+  c(a,g),
+  c(b,a),
+  c(b,b),
+  c(b,c),
+  c(b,f),
+  c(b,g),
+  c(c,a),
+  c(c,b),
+  c(c,c),
+  c(c,f),
+  c(c,g),
+  c(d,a),
+  c(d,b),
+  c(d,c),
+  c(d,e),
+  c(d,f),
+  c(d,g),
+  c(e,f),
+  c(e,g),
+  c(f,g)
+}
+Info: 24 tuples computed.  
+
+----------------------------------------------------- Question 24 ------------------------------------------------
+
+Sans l'ajout des cycles de la question 23
+
+DES> impair(X,Y).
+
+{
+  impair(a,b),
+  impair(a,g),
+  impair(b,c),
+  impair(b,f),
+  impair(d,a),
+  impair(d,c),
+  impair(d,e),
+  impair(d,f),
+  impair(d,g),
+  impair(e,f),
+  impair(e,g),
+  impair(f,g)
+}
+
+Avec l'ajout des cycles de la question 23
+
+DES> impair(X,Y).
+
+{
+  impair(a,a),
+  impair(a,b),
+  impair(a,c),
+  impair(a,f),
+  impair(a,g),
+  impair(b,a),
+  impair(b,b),
+  impair(b,c),
+  impair(b,f),
+  impair(b,g),
+  impair(c,a),
+  impair(c,b),
+  impair(c,c),
+  impair(c,f),
+  impair(c,g),
+  impair(d,a),
+  impair(d,b),
+  impair(d,c),
+  impair(d,e),
+  impair(d,f),
+  impair(d,g),
+  impair(e,f),
+  impair(e,g),
+  impair(f,g)
+}
+Info: 24 tuples computed.  

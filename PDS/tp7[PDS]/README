@@ -1,0 +1,8 @@
+Auteur : DIAGNE Salla
+
+Tout a été fait et tout est fonctionnel.
+
+Instructions :
+	- se placer dans le répertoire tp7_diagne et exécuter la commande make pour générer les fichiers objets et l'exécutable
+	- taper ./mcts (ou ./mcts -v pour le mode verbose)
+	- tester

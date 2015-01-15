@@ -1,0 +1,238 @@
+stail = version simpliste de tail
+utail = version utile de tail
+
+============================================> stail <======================================================
+
+------------------ 1er cas : pas d'option -n = affichage des 10 dernières lignes par défaut ---------------
+
+salla@salla-Satellite-C655D ~/workspace/PDS/tp3[PDS] $ ./stail Makefile
+utail: utail.o
+	$(CC) $(CFLAGS) -o utail utail.o
+
+.PHONY: clean realclean
+
+clean:
+	$(RM) stail.o utail.o
+
+realclean:
+	$(RM) *~ stail utail
+
+------------- 2e cas : option -n avec le nombre de lignes à afficher <= nombre de lignes du fichier --------
+
+salla@salla-Satellite-C655D ~/workspace/PDS/tp3[PDS] $ ./stail -n 15 Makefile
+===> Makefile <===
+all: stail utail
+
+stail: stail.o
+	$(CC) $(CFLAGS) -o stail stail.o
+
+utail: utail.o
+	$(CC) $(CFLAGS) -o utail utail.o
+
+.PHONY: clean realclean
+
+clean:
+	$(RM) stail.o utail.o
+
+realclean:
+	$(RM) *~ stail utail
+
+----------- 3e cas : option -n avec le nombre de lignes à afficher > nombre de lignes du fichier = affichage de tout le fichier ----------
+
+salla@salla-Satellite-C655D ~/workspace/PDS/tp3[PDS] $ ./stail -n 100 Makefile
+===> Makefile <===
+CC		= gcc
+CFLAGS	= -Wall -Werror -ansi -pedantic
+CFLAGS += -D_XOPEN_SOURCE=500
+CFLAGS += -g
+
+all: stail utail
+
+stail: stail.o
+	$(CC) $(CFLAGS) -o stail stail.o
+
+utail: utail.o
+	$(CC) $(CFLAGS) -o utail utail.o
+
+.PHONY: clean realclean
+
+clean:
+	$(RM) stail.o utail.o
+
+realclean:
+	$(RM) *~ stail utail
+
+----------------------- 4e cas : option -n avec un nombre négatif = valeur absolue ! --------------------------
+
+salla@salla-Satellite-C655D ~/workspace/PDS/tp3[PDS] $ ./stail -n -15 Makefile
+===> Makefile <===
+all: stail utail
+
+stail: stail.o
+	$(CC) $(CFLAGS) -o stail stail.o
+
+utail: utail.o
+	$(CC) $(CFLAGS) -o utail utail.o
+
+.PHONY: clean realclean
+
+clean:
+	$(RM) stail.o utail.o
+
+realclean:
+	$(RM) *~ stail utail
+
+-------------------- 5e cas : commande exécutée sur plusieurs fichiers = affichage des 10 dernières lignes de chaque fichier ---------------
+
+salla@salla-Satellite-C655D ~/workspace/PDS/tp3[PDS] $ ./stail Makefile stail.c utail.c
+===> Makefile <===
+utail: utail.o
+	$(CC) $(CFLAGS) -o utail utail.o
+
+.PHONY: clean realclean
+
+clean:
+	$(RM) stail.o utail.o
+
+realclean:
+	$(RM) *~ stail utail
+===> stail.c <===
+			else {
+				for (i = 1 ; i < argc ; i++) {
+					printf("===> %s <===\n",argv[i]);
+					stail(argv[i],10);
+				}
+			}
+		}
+		return 0;
+	}
+}
+===> utail.c <===
+			else {
+				for (i = 1 ; i < argc ; i++) {
+					printf("===> %s <===\n",argv[i]);
+					utail(argv[i],10);
+				}
+			}
+		}
+		return 0;
+	}
+}
+
+============================================> utail <======================================================
+
+--------------- 1er cas : pas d'option -n = affichage des 10 dernières lignes par défaut ------------------
+
+salla@salla-Satellite-C655D ~/workspace/PDS/tp3[PDS] $ ./utail Makefile
+utail: utail.o
+	$(CC) $(CFLAGS) -o utail utail.o
+
+.PHONY: clean realclean
+
+clean:
+	$(RM) stail.o utail.o
+
+realclean:
+	$(RM) *~ stail utail
+
+------------- 2e cas : option -n avec le nombre de lignes à afficher <= nombre de lignes du fichier ----------
+
+salla@salla-Satellite-C655D ~/workspace/PDS/tp3[PDS] $ ./utail -n 15 Makefile
+===> Makefile <===
+all: stail utail
+
+stail: stail.o
+	$(CC) $(CFLAGS) -o stail stail.o
+
+utail: utail.o
+	$(CC) $(CFLAGS) -o utail utail.o
+
+.PHONY: clean realclean
+
+clean:
+	$(RM) stail.o utail.o
+
+realclean:
+	$(RM) *~ stail utail
+
+------------- 3e cas : option -n avec le nombre de lignes à afficher > nombre de lignes du fichier = affichage de tout le fichier ------------
+
+salla@salla-Satellite-C655D ~/workspace/PDS/tp3[PDS] $ ./utail -n 100 Makefile
+===> Makefile <===
+CC		= gcc
+CFLAGS	= -Wall -Werror -ansi -pedantic
+CFLAGS += -D_XOPEN_SOURCE=500
+CFLAGS += -g
+
+all: stail utail
+
+stail: stail.o
+	$(CC) $(CFLAGS) -o stail stail.o
+
+utail: utail.o
+	$(CC) $(CFLAGS) -o utail utail.o
+
+.PHONY: clean realclean
+
+clean:
+	$(RM) stail.o utail.o
+
+realclean:
+	$(RM) *~ stail utail
+
+----------------------------------- 4e cas : option -n avec un nombre négatif = valeur absolue ! ----------------------------
+
+salla@salla-Satellite-C655D ~/workspace/PDS/tp3[PDS] $ ./utail -n -15 Makefile
+===> Makefile <===
+all: stail utail
+
+stail: stail.o
+	$(CC) $(CFLAGS) -o stail stail.o
+
+utail: utail.o
+	$(CC) $(CFLAGS) -o utail utail.o
+
+.PHONY: clean realclean
+
+clean:
+	$(RM) stail.o utail.o
+
+realclean:
+	$(RM) *~ stail utail
+
+------------------- 5e cas : commande exécutée sur plusieurs fichiers = affichage des 10 dernières lignes de chaque fichier -------------------
+
+salla@salla-Satellite-C655D ~/workspace/PDS/tp3[PDS] $ ./utail Makefile stail.c utail.c
+===> Makefile <===
+utail: utail.o
+	$(CC) $(CFLAGS) -o utail utail.o
+
+.PHONY: clean realclean
+
+clean:
+	$(RM) stail.o utail.o
+
+realclean:
+	$(RM) *~ stail utail
+===> stail.c <===
+			else {
+				for (i = 1 ; i < argc ; i++) {
+					printf("===> %s <===\n",argv[i]);
+					stail(argv[i],10);
+				}
+			}
+		}
+		return 0;
+	}
+}
+===> utail.c <===
+			else {
+				for (i = 1 ; i < argc ; i++) {
+					printf("===> %s <===\n",argv[i]);
+					utail(argv[i],10);
+				}
+			}
+		}
+		return 0;
+	}
+}

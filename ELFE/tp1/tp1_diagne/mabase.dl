@@ -1,0 +1,54 @@
+% Question 11 %
+:-type(employe(nom:string,age:int,sexe:string,entree:int,entreprise:string,echelon:int)).
+:-type(salaire(entreprise:string,echelon:int,salaire:int)).
+
+employe('Jean',23,'Homme',2000,'IBM',1).
+employe('Jacques',32,'Homme',1991,'BULL',4).
+employe('Anne',45,'Femme',1993,'BULL',3).
+employe('Fabienne',30,'Femme',2002,'XEROX',1).
+employe('Eric',49,'Homme',1984,'BULL',5).
+employe('Marc',25,'Homme',2000,'XEROX',2).
+employe('Julie',24,'Femme',2001,'IBM',1).
+employe('Sonia',35,'Femme',1996,'IBM',3).
+employe('Franck',45,'Homme',1999,'IBM',2).
+employe('Odette',40,'Femme',1994,'BULL',4).
+
+salaire('IBM',1,2000).
+salaire('IBM',2,3000).
+salaire('IBM',3,4500).
+salaire('IBM',4,5500).
+salaire('IBM',5,7500).
+
+salaire('BULL',1,1600).
+salaire('BULL',2,3000).
+salaire('BULL',3,4500).
+salaire('BULL',4,6000).
+salaire('BULL',5,7500).
+
+salaire('XEROX',1,2500).
+salaire('XEROX',2,4500).
+salaire('XEROX',3,5500).
+salaire('XEROX',4,6000).
+salaire('XEROX',5,7000).
+
+% Question 12 %
+employesBULL(Nom) :- employe(Nom,_,_,_,'BULL',_).
+
+% Question 13 %
+salaireJacques(Salaire) :- employe('Jacques',_,_,_,Entreprise,Echelon),salaire(Entreprise,Echelon,Salaire).
+
+% Question 16 %
+jeune_employe(Nom,Entreprise) :- employe(Nom,Age,_,_,Entreprise,_),Age<26.
+
+% Question 17 %
+cadre(Nom) :- employe(Nom,_,_,_,_,Echelon),Echelon>2.
+
+% Question 18 %
+salaire_par_employe(Nom,Salaire) :- employe(Nom,_,_,_,Entreprise,Echelon),salaire(Entreprise,Echelon,Salaire).
+gagne_plus_que(Nom1,Nom2) :- salaire_par_employe(Nom1,Salaire1),salaire_par_employe(Nom2,Salaire2),Salaire1>Salaire2.
+
+% Question 20 %
+a_moins_de_35_ans(Nom) :- employe(Nom,Age,_,_,_,_),Age<36.
+salaires_juniors(Nom,Salaire) :- a_moins_de_35_ans(Nom),salaire_par_employe(Nom,Salaire).
+max_salaire_junior(R) :- max(salaires_juniors(Nom,Salaire),Salaire,R).
+juniorRiche(Nom) :- a_moins_de_35_ans(Nom),salaire_par_employe(Nom,Salaire),max_salaire_junior(Salaire).

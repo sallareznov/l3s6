@@ -1,0 +1,23 @@
+% Question 16 %
+
+adj_rec(X,Y) :- adj(X,Y).
+adj_rec(X,Y) :- adj(X,Z),conj(Z,T),adj_rec(T,Y).
+
+np(X,Y) :- det(X,Z),n(Z,Y).
+np(X,Y) :- det(X,Z),adj_rec(Z,T),n(T,Y).
+np(X,Y) :- np(X,Z),pp(Z,Y).
+
+vp(X,Y) :- v(X,Z),np(Z,Y).
+vp(X,Y) :- vp(X,Z),pp(Z,Y).
+
+pp(X,Y) :- prep(X,Z),np(Z,Y).
+
+s(X,Y) :- np(X,Z),vp(Z,Y).
+
+np_ambigu(X,Y) :- det(X,Z),n(Z,Y),np(X,T),pp(T,Y).
+
+vp_ambigu(X,Y) :- v(X,Z),np(Z,Y),vp(X,T),pp(T,Y).
+
+s_ambigu(X,Y) :- np_ambigu(X,Z),vp(Z,Y).
+s_ambigu(X,Y) :- np(X,Z),vp_ambigu(Z,Y).
+s_ambigu(X,Y) :- np_ambigu(X,Z),vp_ambigu(Z,Y).

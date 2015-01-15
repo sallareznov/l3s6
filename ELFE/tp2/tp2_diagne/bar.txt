@@ -1,0 +1,5 @@
+------------------------------------------------------- Question 10 ----------------------------------------------------------------
+
+DES> /strata
+
+[(aime/2,1),(buveur/1,1),(content/1,1),(devrait_frequenter/2,1),(frequente/2,1),(pub/1,1),(sert/2,1),(devrait_pas_frequenter/2,2),(pas_tres_content/1,2),(triste/1,2),(tres_content/1,3)]

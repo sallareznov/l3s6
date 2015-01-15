@@ -1,0 +1,90 @@
+----------------------------------------------------------- Compilation des fichiers ---------------------------------------------------------
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ make
+gcc -Wall -Werror -ansi -pedantic -D_XOPEN_SOURCE=500 -g -c do.c -o do.o
+gcc -Wall -Werror -ansi -pedantic -D_XOPEN_SOURCE=500 -g -c makeargv.c -o makeargv.o
+gcc -Wall -Werror -ansi -pedantic -D_XOPEN_SOURCE=500 -g do.o makeargv.o -o do
+
+------------------------------------------------------------- Commandes invalides -------------------------------------------------------------
+
+OPTION INVALIDE
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do --an true
+do: invalid option '--an'
+Try ./do --help for more informations.
+
+AND ET OR EN MÊME TEMPS
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do --and --or true
+do: invalid command
+Try ./do --help for more informations.
+
+KILL SANS CC
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do --or --kill true
+do: invalid command
+Try ./do --help for more informations.
+
+PROGRAMME QUI N'EXISTE PAS
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do --or --cc --kill vrai
+vrai: No such file or directory
+
+-------------------------------------------------------- Pas d'options (option --and par défaut) ---------------------------------------------
+
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do true
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ echo $?
+0
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do false
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ echo $?
+1
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do true false
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ echo $?
+1
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do false false
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ echo $?
+1
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do true true
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ echo $?
+0
+
+-------------------------------------------------------- Option --and --------------------------------------------------------------------------
+
+(Même chose que pas d'option)
+
+-------------------------------------------------------- Option --or --------------------------------------------------------------------------
+
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do --or true
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ echo $?
+0
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do --or false
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ echo $?
+1
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do --or false true
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ echo $?
+0
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do --or false false
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ echo $?
+1
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do --or true true
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ echo $?
+0
+
+-------------------------------------------------------- --cc et --kill ------------------------------------------------------------------------
+
+OCAML NE SE LANCE PAS CAR OPTION --or ET TRUE
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do --or --cc --kill true "ledit ocaml"
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ 
+
+OCAML SE LANCE CAR OPTION --and ET TRUE
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do --and --cc --kill true "ledit ocaml"
+        Objective Caml version 3.12.1
+
+# #quit ;;
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ 
+
+OCAML NE SE LANCE PAS CAR OPTION --and ET FALSE
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do --and --cc --kill false "ledit ocaml"
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ 
+
+OCAML SE LANCE CAR OPTION --or ET FALSE
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ ./do --or --cc --kill false "ledit ocaml"
+        Objective Caml version 3.12.1
+
+# #quit ;;
+salla@salla-Satellite-C655D ~/workspace/PDS/tp5[PDS] $ 
